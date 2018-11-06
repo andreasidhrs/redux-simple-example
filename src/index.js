@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from "react-redux";
 import store from './store/index';
-import { addTodo } from './actions/index';
+import { addTodo, counterInc, counterDec } from './actions/index';
 
 window.store = store;
 window.addTodo = addTodo;
+window.counterInc = counterInc;
+window.counterDec = counterDec;
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
 

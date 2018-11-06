@@ -1,8 +1,16 @@
-import { createStore } from "redux";
+import { createStore, applyMiddleware, combineReducers } from "redux";
 import rootReducer from "../reducers/index";
+import countReducer from '../reducers/counter';
 import { addTodo } from "../actions";
+import logger from './../middlewares/logger';
+import { composeWithDevTools } from 'remote-redux-devtools';
 
-const store = createStore(rootReducer);
+const reducers = combineReducers({
+    todo: rootReducer,
+    counter: countReducer
+});
+
+const store = createStore(reducers, composeWithDevTools(applyMiddleware(logger)));
 
 /*fetch('https://jsonplaceholder.typicode.com/todos')
 .then( res => res.json())

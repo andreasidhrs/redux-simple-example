@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { addTodo, removeTodo } from './actions/index';
 
 const mapStateToProps = state => {
-    return { todos: state.todos };
+    return { todos: state.todo.todos };
 };
 
 const mapDispatchToProps = dispatch => {
